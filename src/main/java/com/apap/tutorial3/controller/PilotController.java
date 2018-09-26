@@ -58,9 +58,9 @@ public class PilotController {
 	}
 	
 	@RequestMapping("/pilot/update/license-number/{licenseNumber}/fly-hour/{flyHour}​")
-	public String updatePath(@PathVariable String licenseNumber, @PathVariable String flyHour, Model model) {
-		if (licenseNumber != null) {
-			PilotModel pilot = pilotService.updatePilotFlyHourByLicenseNumber(licenseNumber, Integer.parseInt(flyHour));
+	public String updatePath(@PathVariable Optional<String> licenseNumber, @PathVariable Integer flyHour, Model model) {
+		if (licenseNumber.isPresent() && pilotService.getPilotDetailByLicenseNumber(licenseNumber.get()) != null) {
+			PilotModel pilot = pilotService.updatePilotFlyHourByLicenseNumber(licenseNumber.get(), flyHour);
 			model.addAttribute("flyHour", pilot.getFlyHour());
 			return "update-FlyHour";
 		}
@@ -68,4 +68,6 @@ public class PilotController {
 			return "viewpath-pilot-error";
 		}
 	}
+	
+	
 }
