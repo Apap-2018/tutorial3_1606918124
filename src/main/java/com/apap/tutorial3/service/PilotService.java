@@ -9,4 +9,5 @@ public interface PilotService {
 	PilotModel getPilotDetailByLicenseNumber(String licenseNumber);
 	PilotModel updatePilotFlyHourByLicenseNumber(String licenseNumber, Integer flyHour);
 	PilotModel getPilotDetailById(String id);
+	PilotModel getRemove(PilotModel pilot);
 }

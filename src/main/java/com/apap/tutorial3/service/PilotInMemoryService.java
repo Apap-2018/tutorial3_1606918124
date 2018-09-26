@@ -53,6 +53,12 @@ public class PilotInMemoryService implements PilotService {
 		}
 		return null;
 	}
+
+	@Override
+	public PilotModel getRemove(PilotModel pilot) {
+		archivePilot.remove(pilot);
+		return null;
+	}
 	
 	
 }

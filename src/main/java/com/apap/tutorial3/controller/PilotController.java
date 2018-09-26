@@ -73,7 +73,7 @@ public class PilotController {
 	public String deletePath(@PathVariable String id, Model model) {
 		if (pilotService.getPilotDetailById(id) != null) {
 			PilotModel pilot = pilotService.getPilotDetailById(id);
-			
+			pilotService.getRemove(pilot);
 			model.addAttribute("pilot", pilot);
 			return "viewID-pilot";
 		}
