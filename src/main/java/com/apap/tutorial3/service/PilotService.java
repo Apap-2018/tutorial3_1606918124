@@ -8,4 +8,5 @@ public interface PilotService {
 	List<PilotModel> getPilotList();
 	PilotModel getPilotDetailByLicenseNumber(String licenseNumber);
 	PilotModel updatePilotFlyHourByLicenseNumber(String licenseNumber, Integer flyHour);
+	PilotModel getPilotDetailById(String id);
 }

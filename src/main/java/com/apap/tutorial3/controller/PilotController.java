@@ -69,5 +69,17 @@ public class PilotController {
 		}
 	}
 	
+	@RequestMapping("/pilot/delete/id/{id}")
+	public String deletePath(@PathVariable String id, Model model) {
+		if (pilotService.getPilotDetailById(id) != null) {
+			PilotModel pilot = pilotService.getPilotDetailById(id);
+			
+			model.addAttribute("pilot", pilot);
+			return "viewID-pilot";
+		}
+		else {
+			return "viewpath-pilot-error";
+		}
+	}
 	
 }

@@ -32,6 +32,16 @@ public class PilotInMemoryService implements PilotService {
 		}
 		return null;
 	}
+	
+	@Override
+	public PilotModel getPilotDetailById(String id) {
+		for (PilotModel pilot:archivePilot) {
+			if (pilot.getId().equals(id)) {
+				return pilot;
+			}
+		}
+		return null;
+	}
 
 	@Override
 	public PilotModel updatePilotFlyHourByLicenseNumber(String licenseNumber, Integer flyHour) {
